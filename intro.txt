@@ -1,0 +1,51 @@
+<div style="width: 40em;">
+<p>
+Здравствуйте! Спасибо, что участвуете в нашем исследовании. Оно посвящено восприятию прилагательных русского языка.
+</p>
+<p>
+На экране вы увидите словосочетания с прилагательными. Вам нужно решить: имеет ли это словосочетание смысл.
+<p>  
+Если да — нажмите на клавиатуре 1.
+</p>
+<p>
+Если нет — нажмите 0. Вы также можете выбирать цифры 1 или 0 на экране, кликая по ним мышкой.
+</p>
+Сразу после этого вы перейдете к следующему словосочетанию. Постарайтесь отвечать максимально быстро и правильно.
+<p>
+Эксперимент займет у вас около 10 минут. Сначала заполните, пожалуйста, короткую анкету.
+</p>
+  
+
+<table>
+<tr>
+  <td>Пол:</td><td><input name="sex" type="radio" value="male" class="obligatory" id="csexmale" /><label for="csexmale">Мужчина </label>
+                   <input name="sex" type="radio" value="female" id="csexfemale"/><label for="csexfemale"> Женщина</label>
+                   <input name="sex" type="radio" value="other" id="csexother" /><label for="csexother">Другое </label>
+</tr>
+<tr>
+<td colspan="2"><label class="error" for="sex"></label></td>
+</tr>
+<tr>
+  <td>Возраст:</td><td><input name="age" type="text" size="30" class="obligatory" /></td>
+</tr>
+<tr>
+<td colspan="2"><label class="error" for="age"></label></td>
+</tr>
+<tr>
+  <td>Образование:</td><td><input name="name" type="text" size="30" class="obligatory" /></td>
+</tr>
+<tr>
+<td colspan="2"><label class="error" for="name"></label></td>
+</tr>
+<tr>
+<td colspan="2" style="padding-bottom: 1em;"><input type="checkbox" class="obligatory" name="consent" id="consentcx" /><label for="consentcx"> Я добровольно участвую в исследовании, мне от 18 до 40 лет, 
+мой родной язык - русский и я не страдаю нарушениями речи и серьезными психическими заболеваниями.</label></td>
+</tr>
+<tr>
+<td colspan="2">
+<label class="error" for="consent"></label>
+</td>
+</tr>
+</table>
+
+</div>

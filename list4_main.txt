@@ -1,0 +1,229 @@
+var shuffleSequence = seq("intro", seq("practice", seq( "filler1", "filler2", "stimuli1", "filler3", "filler4", "stimuli2", "filler5", "filler6", "stimuli3", "filler7", "filler8", "stimuli4", "filler9", "filler10",  "stimuli5", "filler11", "filler12",  "stimuli6", "filler13", "filler14",  "stimuli7", "filler15", "filler16", "stimuli8", "filler17", "filler18",  "stimuli9", "filler19", "filler20","stimuli10", "filler21", "filler22",  "stimuli11", "filler23", "filler24", "stimuli12", "filler25", "filler26",  "stimuli13", "filler27", "filler28", "stimuli14", "filler29", "filler30",  "stimuli15", "filler31", "filler32", "stimuli16", "filler33", "filler34",  "stimuli17", "filler35", "filler36", "stimuli18", "filler37", "filler38", "stimuli19", "filler39", "filler40",  "stimuli20", "filler41", "filler42", "stimuli21", "filler43", "filler44",  "stimuli22", "filler45", "filler46", "stimuli23", "filler47", "filler48",  "stimuli24", "filler49", "filler50", "stimuli25", "filler51", "filler52", "stimuli26", "filler53", "filler54", "stimuli27")));
+var defaults = [
+"AcceptabilityJudgment", {
+as: ["1", "0"],
+presentAsScale: true,
+instructions: "Выберите на клавиатуре 1 - словосочетание имеет смысл; 0 - не имеет смысла. Или просто кликайте мышью по подходящему варианту",
+leftComment: "(Словосочетание осмысленное)", rightComment: "(Словосочетание бессмысленное)"
+},
+
+    "Form", {
+hideProgressBar: false,
+continueOnReturn: true,
+saveReactionTime: true
+}
+];
+
+var items = [
+
+
+    // New in Ibex 0.3-beta-9. You can now add a '__SendResults__' controller in your shuffle
+    // sequence to send results before the experiment has finished. This is NOT intended to allow
+    // for incremental sending of results -- you should send results exactly once per experiment.
+    // However, it does permit additional messages to be displayed to participants once the
+    // experiment itself is over. If you are manually inserting a '__SendResults__' controller into
+    // the shuffle sequence, you must set the 'manualSendResults' configuration variable to 'true', since
+    // otherwise, results are automatically sent at the end of the experiment.
+    //
+    ["sr", "__SendResults__", { }],
+
+
+    //["sep", "Separator", { }],
+
+
+    // New in Ibex 0.3-beta19. You can now determine the point in the experiment at which the counter
+    // for latin square designs will be updated. (Previously, this was always updated upon completion
+    // of the experiment.) To do this, insert the special '__SetCounter__' controller at the desired
+    // point in your running order. If given no options, the counter is incremented by one. If given
+    // an 'inc' option, the counter is incremented by the specified amount. If given a 'set' option,
+    // the counter is set to the given number. (E.g., { set: 100 }, { inc: -1 })
+    //
+    //["setcounter", "__SetCounter__", { }],
+
+
+    // NOTE: You could also use the 'Message' controller for the experiment intro (this provides a simple
+    // consent checkbox).
+
+
+    ["intro", "Form", {
+        html: { include: "example_intro.html" },
+        validators: {
+            age: function (s) { if (s.match(/^\d+$/)) return true; else return "Bad value for \u2018age\u2019"; }
+        }
+    } ],
+
+    ["practice", "AcceptabilityJudgment", {s: "Сначала вам будет предложен тренировочный фрагмент. Нажмите 1 или 0, чтобы приступить."}],
+    ["practice", "AcceptabilityJudgment", {s: "ветхий забор"}],
+    ["practice", "AcceptabilityJudgment", {s: "ветхий рывок"}],
+    ["practice", "AcceptabilityJudgment", {s: "громкое тесто"}],
+    ["practice", "AcceptabilityJudgment", {s: "громкое дерево"}],
+    ["practice", "AcceptabilityJudgment", {s: "любезная змея"}],
+    ["practice", "AcceptabilityJudgment", {s: "любезная внучка"}],
+    ["practice", "AcceptabilityJudgment", {s: "пустой стакан"}],
+    ["practice", "AcceptabilityJudgment", {s: "пустой рюкзак"}],
+    ["practice", "AcceptabilityJudgment", {s: "Тренировка окончена. Сейчас начнется эксперимент. Нажмите 1 или 0, чтобы продолжить."}],
+    
+    ["stimuli11", "AcceptabilityJudgment", {s: "тяжелый подъем"}],
+    ["stimuli11", "AcceptabilityJudgment", {s: "тяжелый выбор"}],
+    ["stimuli12", "AcceptabilityJudgment", {s: "жесткая критика"}],  
+    ["stimuli12", "AcceptabilityJudgment", {s: "жесткая вода"}],
+    ["stimuli13", "AcceptabilityJudgment", {s: "низкое значение"}],
+    ["stimuli13", "AcceptabilityJudgment", {s: "низкое поведение"}],
+    ["stimuli14", "AcceptabilityJudgment", {s: "жирный шрифт"}],
+    ["stimuli14", "AcceptabilityJudgment", {s: "жирный блеск"}],
+    ["stimuli15", "AcceptabilityJudgment", {s: "темная фигура"}],
+    ["stimuli15", "AcceptabilityJudgment", {s: "темная душа"}],
+    ["stimuli16", "AcceptabilityJudgment", {s: "теплое прощание"}],
+    ["stimuli16", "AcceptabilityJudgment", {s: "теплое утро"}],
+    ["stimuli17", "AcceptabilityJudgment", {s: "горячий обед"}],
+    ["stimuli17", "AcceptabilityJudgment", {s: "горячий парень"}],
+    ["stimuli18", "AcceptabilityJudgment", {s: "грубая речь"}],
+    ["stimuli18", "AcceptabilityJudgment", {s: "грубая обувь"}],
+    ["stimuli19", "AcceptabilityJudgment", {s: "холодный месяц"}],
+    ["stimuli19", "AcceptabilityJudgment", {s: "холодный прием"}],
+    ["stimuli20", "AcceptabilityJudgment", {s: "мягкое обращение"}],
+    ["stimuli20", "AcceptabilityJudgment", {s: "мягкое звучание"}],
+    ["stimuli1", "AcceptabilityJudgment", {s: "прямая трансляция"}],
+    ["stimuli1", "AcceptabilityJudgment", {s: "прямая речь"}],
+    ["stimuli2", "AcceptabilityJudgment", {s: "благородный напиток"}],
+    ["stimuli2", "AcceptabilityJudgment", {s: "благородный порыв"}],
+    ["stimuli3", "AcceptabilityJudgment", {s: "высокое разрешение"}],
+    ["stimuli3", "AcceptabilityJudgment", {s: "высокое искусство"}],
+    ["stimuli4", "AcceptabilityJudgment", {s: "сладкая улыбка"}],
+    ["stimuli4", "AcceptabilityJudgment", {s: "сладкая тарелка"}],
+    ["stimuli5", "AcceptabilityJudgment", {s: "прозрачный ручей"}],
+    ["stimuli5", "AcceptabilityJudgment", {s: "прозрачный намек"}],
+    ["stimuli6", "AcceptabilityJudgment", {s: "сочное лето"}],
+    ["stimuli6", "AcceptabilityJudgment", {s: "сочное тело"}],
+    ["stimuli7", "AcceptabilityJudgment", {s: "крутая езда"}],
+    ["stimuli7", "AcceptabilityJudgment", {s: "крутая подруга"}],
+    ["stimuli8", "AcceptabilityJudgment", {s: "мутный тип"}],
+    ["stimuli8", "AcceptabilityJudgment", {s: "мутный свет"}],
+    ["stimuli9", "AcceptabilityJudgment", {s: "легкая куртка"}],
+    ["stimuli9", "AcceptabilityJudgment", {s: "легкая смерть"}],
+    ["stimuli10", "AcceptabilityJudgment", {s: "зеленый активист"}],
+    ["stimuli10", "AcceptabilityJudgment", {s: "зеленый город"}],
+    ["stimuli27", "AcceptabilityJudgment", {s: "золотая вышивка"}],
+    ["stimuli27", "AcceptabilityJudgment", {s: "золотая хозяйка"}],
+    ["stimuli26", "AcceptabilityJudgment", {s: "буйная фантазия"}],
+    ["stimuli26", "AcceptabilityJudgment", {s: "буйная голова"}],
+    ["stimuli25", "AcceptabilityJudgment", {s: "гибкий стан"}],
+    ["stimuli25", "AcceptabilityJudgment", {s: "гибкий график"}],
+    ["stimuli23", "AcceptabilityJudgment", {s: "живая беседа"}],
+    ["stimuli23", "AcceptabilityJudgment", {s: "живая природа"}],
+    ["stimuli24", "AcceptabilityJudgment", {s: "острое бритье"}],
+    ["stimuli24", "AcceptabilityJudgment", {s: "острое предчувствие"}],
+    ["stimuli22", "AcceptabilityJudgment", {s: "черный день"}],
+    ["stimuli22", "AcceptabilityJudgment", {s: "черный континент"}],
+    ["stimuli21", "AcceptabilityJudgment", {s: "ветреная платформа"}],
+    ["stimuli21", "AcceptabilityJudgment", {s: "ветреная женщина"}],
+    
+    ["filler11", "AcceptabilityJudgment", {s: "широкая колея"}],
+    ["filler11", "AcceptabilityJudgment", {s: "широкая гордость"}],
+    ["filler12", "AcceptabilityJudgment", {s: "синее содержание"}],  
+    ["filler12", "AcceptabilityJudgment", {s: "синее участие"}],
+    ["filler13", "AcceptabilityJudgment", {s: "светлое сражение"}],
+    ["filler13", "AcceptabilityJudgment", {s: "светлое помещение"}],
+    ["filler14", "AcceptabilityJudgment", {s: "твердый диван"}],
+    ["filler14", "AcceptabilityJudgment", {s: "твердый стиль"}],
+    ["filler15", "AcceptabilityJudgment", {s: "грустное ожидание"}],
+    ["filler15", "AcceptabilityJudgment", {s: "грустное бешенство"}],
+    ["filler16", "AcceptabilityJudgment", {s: "вязкий прыжок"}],
+    ["filler16", "AcceptabilityJudgment", {s: "вязкий поклон"}],
+    ["filler17", "AcceptabilityJudgment", {s: "глубокая цифра"}],
+    ["filler17", "AcceptabilityJudgment", {s: "глубокая дыра"}],
+    ["filler18", "AcceptabilityJudgment", {s: "звонкое одеяние"}],
+    ["filler18", "AcceptabilityJudgment", {s: "звонкое обучение"}],
+    ["filler19", "AcceptabilityJudgment", {s: "строгое правило"}],
+    ["filler19", "AcceptabilityJudgment", {s: "строгое небо"}],
+    ["filler20", "AcceptabilityJudgment", {s: "полезный вред"}],
+    ["filler20", "AcceptabilityJudgment", {s: "полезный цирк"}],
+    ["filler1", "AcceptabilityJudgment", {s: "ясное богатство"}],
+    ["filler1", "AcceptabilityJudgment", {s: "ясное метро"}],
+    ["filler2", "AcceptabilityJudgment", {s: "вольный свет"}],
+    ["filler2", "AcceptabilityJudgment", {s: "вольный дух"}],
+    ["filler3", "AcceptabilityJudgment", {s: "капризная девочка"}],
+    ["filler3", "AcceptabilityJudgment", {s: "капризная булочка"}],
+    ["filler4", "AcceptabilityJudgment", {s: "толстое правление"}],
+    ["filler4", "AcceptabilityJudgment", {s: "толстое тепло"}],
+    ["filler5", "AcceptabilityJudgment", {s: "примерная ванна"}],
+    ["filler5", "AcceptabilityJudgment", {s: "примерная сумма"}],
+    ["filler6", "AcceptabilityJudgment", {s: "тугое родство"}],
+    ["filler6", "AcceptabilityJudgment", {s: "тугое уныние"}],
+    ["filler7", "AcceptabilityJudgment", {s: "резкий удар"}], 
+    ["filler7", "AcceptabilityJudgment", {s: "резкий шарф"}],
+    ["filler8", "AcceptabilityJudgment", {s: "правдивое кашне"}], 
+    ["filler8", "AcceptabilityJudgment", {s: "правдивое стойло"}],
+    ["filler9", "AcceptabilityJudgment", {s: "быстрое число"}],
+    ["filler9", "AcceptabilityJudgment", {s: "быстрое бегство"}],
+    ["filler10", "AcceptabilityJudgment", {s: "красная зависть"}],
+    ["filler10", "AcceptabilityJudgment", {s: "красная просьба"}],
+    ["filler31", "AcceptabilityJudgment", {s: "грязный электрон"}], 
+    ["filler31", "AcceptabilityJudgment", {s: "грязный горизонт"}],
+    ["filler32", "AcceptabilityJudgment", {s: "правильное решение"}], 
+    ["filler32", "AcceptabilityJudgment", {s: "правильное воровство"}],
+    ["filler33", "AcceptabilityJudgment", {s: "тонкий гнев"}],
+    ["filler33", "AcceptabilityJudgment", {s: "тонкий слух"}],
+    ["filler34", "AcceptabilityJudgment", {s: "мелкая пехота"}],
+    ["filler34", "AcceptabilityJudgment", {s: "мелкая учеба"}],
+    ["filler35", "AcceptabilityJudgment", {s: "временное постоянство"}], 
+    ["filler35", "AcceptabilityJudgment", {s: "временное положение"}],
+    ["filler36", "AcceptabilityJudgment", {s: "вялый кофе"}], 
+    ["filler36", "AcceptabilityJudgment", {s: "вялый пень"}],
+    ["filler37", "AcceptabilityJudgment", {s: "большой дом"}],
+    ["filler37", "AcceptabilityJudgment", {s: "большой душок"}],
+    ["filler38", "AcceptabilityJudgment", {s: "тусклое образование"}],
+    ["filler38", "AcceptabilityJudgment", {s: "тусклое распределение"}],
+    ["filler39", "AcceptabilityJudgment", {s: "веселая тонна"}], 
+    ["filler39", "AcceptabilityJudgment", {s: "веселая шутка"}],
+    ["filler40", "AcceptabilityJudgment", {s: "защитный домкрат"}], 
+    ["filler40", "AcceptabilityJudgment", {s: "защитный шрифт"}],
+    ["filler41", "AcceptabilityJudgment", {s: "просторная корова"}],
+    ["filler41", "AcceptabilityJudgment", {s: "просторная погода"}],
+    ["filler42", "AcceptabilityJudgment", {s: "желтый шарф"}],
+    ["filler42", "AcceptabilityJudgment", {s: "желтый страх"}],
+    ["filler43", "AcceptabilityJudgment", {s: "случайное намерение"}], 
+    ["filler43", "AcceptabilityJudgment", {s: "случайное падение"}],
+    ["filler44", "AcceptabilityJudgment", {s: "осторожная клавиша"}], 
+    ["filler44", "AcceptabilityJudgment", {s: "осторожная винтовка"}],
+    ["filler45", "AcceptabilityJudgment", {s: "серебряная монета"}],
+    ["filler45", "AcceptabilityJudgment", {s: "серебряная вена"}],
+    ["filler46", "AcceptabilityJudgment", {s: "солнечное здоровье"}],
+    ["filler46", "AcceptabilityJudgment", {s: "солнечное стекло"}],
+    ["filler47", "AcceptabilityJudgment", {s: "тихий костюм"}], 
+    ["filler47", "AcceptabilityJudgment", {s: "тихий стук"}],
+    ["filler48", "AcceptabilityJudgment", {s: "мертвая одежда"}], 
+    ["filler48", "AcceptabilityJudgment", {s: "мертвая справка"}],
+    ["filler49", "AcceptabilityJudgment", {s: "кислая груша"}],     
+    ["filler49", "AcceptabilityJudgment", {s: "кислая телега"}],
+    ["filler50", "AcceptabilityJudgment", {s: "полное золото"}],
+    ["filler50", "AcceptabilityJudgment", {s: "полное пламя"}],
+    ["filler21", "AcceptabilityJudgment", {s: "любимый выдох"}], 
+    ["filler21", "AcceptabilityJudgment", {s: "любимый учитель"}],
+    ["filler22", "AcceptabilityJudgment", {s: "каменное поселение"}], 
+    ["filler22", "AcceptabilityJudgment", {s: "каменное болото"}],
+    ["filler23", "AcceptabilityJudgment", {s: "парадный синоним"}],
+    ["filler23", "AcceptabilityJudgment", {s: "парадный мусор"}],
+    ["filler24", "AcceptabilityJudgment", {s: "уверенная равнина"}],
+    ["filler24", "AcceptabilityJudgment", {s: "уверенная начальница"}],
+    ["filler25", "AcceptabilityJudgment", {s: "смирная батарея"}], 
+    ["filler25", "AcceptabilityJudgment", {s: "смирная юбка"}],
+    ["filler26", "AcceptabilityJudgment", {s: "бесцветный материал"}], 
+    ["filler26", "AcceptabilityJudgment", {s: "бесцветный процент"}],
+    ["filler27", "AcceptabilityJudgment", {s: "точный парик"}],
+    ["filler27", "AcceptabilityJudgment", {s: "точный расчет"}],
+    ["filler28", "AcceptabilityJudgment", {s: "мокрая подпись"}],
+    ["filler28", "AcceptabilityJudgment", {s: "мокрая каста"}],
+    ["filler29", "AcceptabilityJudgment", {s: "глупый зуб"}], 
+    ["filler29", "AcceptabilityJudgment", {s: "глупый фарш"}],
+    ["filler30", "AcceptabilityJudgment", {s: "широкая колея"}], 
+    ["filler30", "AcceptabilityJudgment", {s: "широкая гордость"}],
+    ["filler54", "AcceptabilityJudgment", {s: "полезный вред"}],
+    ["filler54", "AcceptabilityJudgment", {s: "полезный цирк"}],
+    ["filler53", "AcceptabilityJudgment", {s: "широкая колея"}],
+    ["filler53", "AcceptabilityJudgment", {s: "широкая гордость"}],
+    ["filler52", "AcceptabilityJudgment", {s: "быстрое число"}],
+    ["filler52", "AcceptabilityJudgment", {s: "быстрое бегство"}],
+    ["filler51", "AcceptabilityJudgment", {s: "вязкий прыжок"}],
+    ["filler51", "AcceptabilityJudgment", {s: "вязкий поклон"}],    
+];
